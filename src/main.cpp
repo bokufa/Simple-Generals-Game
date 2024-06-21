@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include "game.cpp"
+#include "include\game.cpp"
 #include <windows.h>
 #include <chrono>
 #include <curses.h>
@@ -26,7 +26,7 @@ int main() {
     mousemask(ALL_MOUSE_EVENTS | REPORT_MOUSE_POSITION, NULL); // 启用所有鼠标事件
     nodelay(stdscr, TRUE);
     MEVENT event;
-    int displaymode=1;
+    int displaymode=0;
     board.display(displaymode);
     std::vector<char> keyboardbuffer(100,0);
     int key=0;
@@ -96,11 +96,11 @@ int main() {
     
     nodelay(stdscr, FALSE);
     init_pair(1, COLOR_YELLOW, COLOR_RED );
-    attron(COLOR_PAIR(1));
+    
     mvprintw(rows/2,BlockWidth*((cols-1)/2)-1, "    ");mvprintw(rows/2,BlockWidth*((cols-1)/2)+1, "    ");
     mvprintw(rows/2+1,BlockWidth*((cols-1)/2)-1, "    ");mvprintw(rows/2+1,BlockWidth*((cols-1)/2)+1, "    ");
     mvprintw(rows/2-1,BlockWidth*((cols-1)/2)-1, "    ");mvprintw(rows/2-1,BlockWidth*((cols-1)/2)+1, "    ");
-    attroff(COLOR_PAIR(1));
+    
     mvprintw(rows/2,BlockWidth*(cols-1)/2, "GAME OVER!");
     mvprintw(rows/2+1,BlockWidth*(cols-1)/2-5, "PRESS ANY KEY TO EXIT");
     

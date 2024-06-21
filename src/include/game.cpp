@@ -116,18 +116,20 @@ bool Board::checkgamestate(){
 void Board :: display(int mode) const{
     
     init_pair(1, COLOR_BLACK, COLOR_WHITE);  // 创建颜色对，第一个参数是颜色对的索引，后面两个参数分别是前景色和背景色//mountain
-    init_pair(2, COLOR_BLACK,COLOR_MAGENTA );//castle
+    init_pair(2, COLOR_BLACK, COLOR_WHITE);//castle
     init_pair(3,  COLOR_WHITE, COLOR_BLACK); //free field
     init_pair(4, COLOR_RED, COLOR_BLACK );  //p1
     init_pair(5, COLOR_BLUE, COLOR_BLACK ); //p2
     init_pair(6, COLOR_BLACK, COLOR_RED );  //p1 castle
-    init_pair(7, COLOR_MAGENTA,COLOR_BLUE); //p2 castle
+    init_pair(7, COLOR_BLACK,COLOR_BLUE); //p2 castle
     
     if(mode==1)
     {for (int i=0;i<rows;i++){
         for(int j=0;j<cols;j++){
             attron(COLOR_PAIR(board[i][j].fieldcolor));
             std::string string=std::to_string(board[i][j].Force);
+            if (i==0||j==0||i==rows-1||j==cols-1) string=" ";
+            else if(board[i][j].fieldtype==1) string="M";
             mvprintw(i, BlockWidth*j,"     ");
             mvprintw(i, BlockWidth*j, string.c_str());
             attroff(COLOR_PAIR(board[i][j].fieldcolor));
@@ -143,6 +145,8 @@ void Board :: display(int mode) const{
             {
             attron(COLOR_PAIR(board[i][j].fieldcolor));
             std::string string=std::to_string(board[i][j].Force);
+            if (i==0||j==0||i==rows-1||j==cols-1) string=" ";
+            else if(board[i][j].fieldtype==1) string="M";
             mvprintw(i, BlockWidth*j,"     ");
             mvprintw(i, BlockWidth*j, string.c_str());
             attroff(COLOR_PAIR(board[i][j].fieldcolor));
