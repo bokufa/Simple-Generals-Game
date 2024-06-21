@@ -21,7 +21,7 @@ Generals 是一款策略游戏，玩家通过控制军队和资源来扩展领�
 
 ```bash
 git clone https://github.com/bokufa/Simple-Generals-Game.git
-cd Generals
+cd Simple-Generals-Game-version0.1
 ```
 
 ### 编译与运行
