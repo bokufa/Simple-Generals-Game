@@ -20,8 +20,8 @@ Generals 是一款策略游戏，玩家通过控制军队和资源来扩展领�
 首先，克隆项目到本地计算机：
 
 ```bash
-git clone https://github.com/yourusername/generals-game.git
-cd generals-game
+git clone https://github.com/bokufa/Simple-Generals-Game.git
+cd Generals
 ```
 
 ### 编译与运行
